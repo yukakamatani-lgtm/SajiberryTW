@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鉄分不足度チェック</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="q-screen" class="screen active">
+        <h1>✨ 鉄分不足度チェック ✨</h1>
+        <p style="font-size:14px; color:#666;">当てはまるものに<br>すべてチェックを入れてみましょう！</p>
+        
+        <div class="check-list">
+            <label class="check-item"><input type="checkbox" value="1"> 朝からいまいちさえない</label>
+            <label class="check-item"><input type="checkbox" value="1"> 元気がほしいと感じる</label>
+            <label class="check-item"><input type="checkbox" value="1"> 立ち仕事が多い</label>
+            <label class="check-item"><input type="checkbox" value="1"> 運動不足の日が多い</label>
+            <label class="check-item"><input type="checkbox" value="1"> 美容の調子が気になる</label>
+            <label class="check-item"><input type="checkbox" value="1"> 老けて見られる</label>
+            <label class="check-item"><input type="checkbox" value="1"> 食事が偏りがち、お肉を食べることが少ない</label>
+            <label class="check-item"><input type="checkbox" value="1"> 飲み物などの氷をよく食べる</label>
+        </div>
+        
+        <button class="btn" onclick="calculateResult()">結果を見る！</button>
+    </div>
+
+    <div id="result-screen" class="screen">
+        <h2>診断完了！</h2>
+        <p>あなたの当てはまった数は…</p>
+        <p><span id="check-count" style="font-size:32px; color:#FF6B81; font-weight:bold;">0</span> 個でした！</p>
+        
+        <h1 id="result-title" style="margin: 25px 0 10px 0; font-size: 20px;">ここに結果が出ます</h1>
+        <p id="result-desc" style="text-align: left; padding: 0 15px; font-size: 15px; line-height: 1.6;">ここに説明が出ます。</p>
+        
+        <button id="sendBtn" class="btn line-btn">結果をLINEに送る</button>
+    </div>
+
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
