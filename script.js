@@ -66,12 +66,7 @@ function calculateResult() {
 // --- LINEにFlex Messageとテキストを送信する処理 ---
 document.getElementById('sendBtn').addEventListener('click', () => {
     liff.sendMessages([
-        // 🌟 1つ目：テキストメッセージを追加
-        {
-            type: "text",
-            text: "［Answer］鉄分不足度チェック結果"
-        },
-        // 🌟 2つ目：カード型メッセージ（Flex Message）
+
         {
             type: "flex",
             altText: "鉄分不足度チェックの結果が届きました！", 
