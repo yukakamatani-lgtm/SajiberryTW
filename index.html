@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鉄分不足度チェック</title>
+    <title>鐵質自我檢測</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="q-screen" class="screen active">
-        <h1>✨ 鉄分不足度チェック ✨</h1>
-        <p style="font-size:14px; color:#666;">当てはまるものに<br>すべてチェックを入れてみましょう！</p>
+        <h1>✨ 鐵質自我檢測 ✨</h1>
+        <p style="font-size:14px; color:#666;">請確認以下有幾項符合您目前的情形：</p>
         
         <div class="check-list">
-            <label class="check-item"><input type="checkbox" value="1"> 朝からいまいちさえない</label>
-            <label class="check-item"><input type="checkbox" value="1"> 元気がほしいと感じる</label>
-            <label class="check-item"><input type="checkbox" value="1"> 立ち仕事が多い</label>
-            <label class="check-item"><input type="checkbox" value="1"> 運動不足の日が多い</label>
-            <label class="check-item"><input type="checkbox" value="1"> 美容の調子が気になる</label>
-            <label class="check-item"><input type="checkbox" value="1"> 老けて見られる</label>
-            <label class="check-item"><input type="checkbox" value="1"> 食事が偏りがち、お肉を食べることが少ない</label>
-            <label class="check-item"><input type="checkbox" value="1"> 飲み物などの氷をよく食べる</label>
+            <label class="check-item"><input type="checkbox" value="1"> 早上常覺得沒有精神</label>
+            <label class="check-item"><input type="checkbox" value="1"> 容易感到疲憊</label>
+            <label class="check-item"><input type="checkbox" value="1"> 平時需要長時間站立</label>
+            <label class="check-item"><input type="checkbox" value="1"> 運動量不足</label>
+            <label class="check-item"><input type="checkbox" value="1"> 在意肌膚狀況</label>
+            <label class="check-item"><input type="checkbox" value="1"> 看起來比實際年齡成熟</label>
+            <label class="check-item"><input type="checkbox" value="1"> 飲食不均衡，較少攝取肉類</label>
+            <label class="check-item"><input type="checkbox" value="1"> 經常想吃冰塊</label>
         </div>
         
-        <button class="btn" onclick="calculateResult()">結果を見る！</button>
+        <button class="btn" onclick="calculateResult()">看看结果！</button>
     </div>
 
     <div id="result-screen" class="screen">
-        <h2>診断完了！</h2>
-        <p>あなたの当てはまった数は…</p>
-        <p><span id="check-count" style="font-size:32px; color:#FF6B81; font-weight:bold;">0</span> 個でした！</p>
+        <h2>诊断完成！</h2>
+        <p>你的猜测是...</p>
+        <p><span id="check-count" style="font-size:32px; color:#FF6B81; font-weight:bold;">0</span> 这是碎片！</p>
         
         <h1 id="result-title" style="margin: 25px 0 10px 0; font-size: 20px;">ここに結果が出ます</h1>
         <p id="result-desc" style="text-align: left; padding: 0 15px; font-size: 15px; line-height: 1.6;">ここに説明が出ます。</p>
         
-        <button id="sendBtn" class="btn line-btn">結果をLINEに送る</button>
+        <button id="sendBtn" class="btn line-btn">将结果发送至LINE</button>
     </div>
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
