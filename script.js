@@ -2,6 +2,7 @@
 let finalTitle = "";
 let finalCount = 0;
 let finalDesc = ""; 
+let finalKeyword = ""; // ★ 送信するキーワード用の変数を追加！
 
 // --- LIFFの初期化 ---
 liff.init({ 
@@ -24,6 +25,7 @@ function calculateResult() {
 ※本チェックは、日常生活を振り返るための簡易的なセルフチェックです。
 ※医師による診断や検査に代わるものではありません。
 ※体調に不安がある場合は、医療機関にご相談ください。`;
+        finalKeyword = "［Answer］鉄分不足度チェック結果A"; // ★ 6個以上のキーワード
     } else if (finalCount >= 3) {
         title = "3〜5個当てはまったあなたは・・・";
         desc = `鉄分不足に注意したいサインが、やや多いようです。
@@ -32,6 +34,7 @@ function calculateResult() {
 ※本チェックは、日常生活を振り返るための簡易的なセルフチェックです。
 ※医師による診断や検査に代わるものではありません。
 ※体調に不安がある場合は、医療機関にご相談ください。`;
+        finalKeyword = "［Answer］鉄分不足度チェック結果B"; // ★ 3〜5個のキーワード
     } else if (finalCount >= 1) {
         title = "1〜2個当てはまったあなたは・・・";
         desc = `鉄分が不足しがちな生活習慣や体調サインが、いくつか見られるようです📋️
@@ -40,6 +43,7 @@ function calculateResult() {
 ※本チェックは、日常生活を振り返るための簡易的なセルフチェックです。
 ※医師による診断や検査に代わるものではありません。
 ※体調に不安がある場合は、医療機関にご相談ください。`;            
+        finalKeyword = "［Answer］鉄分不足度チェック結果C"; // ★ 1〜2個のキーワード
     } else {
         title = "1個も当てはまらなかったあなたは・・・";
         desc = `現在のところ、鉄分に関する生活習慣や体調のサインは多くありません✨️
@@ -48,6 +52,7 @@ function calculateResult() {
 ※本チェックは、日常生活を振り返るための簡易的なセルフチェックです。
 ※医師による診断や検査に代わるものではありません。
 ※体調に不安がある場合は、医療機関にご相談ください。`;
+        finalKeyword = "［Answer］鉄分不足度チェック結果D"; // ★ 0個のキーワード
     }
 
     // 変数に保存（送信機能で使うため）
@@ -63,52 +68,13 @@ function calculateResult() {
     window.scrollTo(0, 0);
 }
 
-// --- LINEにFlex Messageとテキストを送信する処理 ---
+// --- LINEにテキストを送信する処理 ---
 document.getElementById('sendBtn').addEventListener('click', () => {
     liff.sendMessages([
-
         {
-            type: "flex",
-            altText: "鉄分不足度チェックの結果が届きました！", 
-            contents: {
-                type: "bubble",
-                size: "mega",
-                header: {
-                    type: "box",
-                    layout: "vertical",
-                    backgroundColor: "#f68e07",
-                    contents: [
-                        { type: "text", text: "✨ 鉄分不足度チェック ✨", weight: "bold", color: "#ffffff", align: "center" }
-                    ]
-                },
-                body: {
-                    type: "box",
-                    layout: "vertical",
-                    contents: [
-                        { type: "text", text: "当てはまった数は...", size: "sm", color: "#666666", align: "center" },
-                        { type: "text", text: finalCount + " 個", weight: "bold", size: "3xl", color: "#FF6B81", align: "center", margin: "md" },
-                        { type: "separator", margin: "lg" }, 
-                        { type: "text", text: finalTitle, weight: "bold", size: "md", color: "#f68e07", margin: "lg", wrap: true },
-                        { type: "text", text: finalDesc, size: "sm", color: "#333333", margin: "md", wrap: true }
-                    ]
-                },
-                footer: {
-                    type: "box",
-                    layout: "vertical",
-                    contents: [
-                        { 
-                            type: "button", 
-                            style: "primary", 
-                            color: "#06C755", 
-                            action: { 
-                                type: "uri", 
-                                label: "もう一度診断する", 
-                                uri: "https://liff.line.me/2009300693-Rh7o0kuJ" 
-                            } 
-                        }
-                    ]
-                }
-            }
+            // ★ Flex Messageを丸ごと消して、キーワードのテキストだけを送るように変更！
+            type: "text",
+            text: finalKeyword
         }
     ]).then(() => {
         liff.closeWindow(); 
